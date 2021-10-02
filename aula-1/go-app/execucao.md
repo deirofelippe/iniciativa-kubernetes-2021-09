@@ -1,0 +1,1 @@
+docker build -t felippedeiro/go-app:multi .
