@@ -1,0 +1,1 @@
+docker build -t felippedeiro/ubuntu-arg:v1 --build-arg TAG="18.04" .
