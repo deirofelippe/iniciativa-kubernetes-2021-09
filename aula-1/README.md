@@ -18,8 +18,16 @@
 1. aproveite as camadas da imagem: aumente a performance da construcao da imagem, usando o cache de camadas de imagem.
 1. use o .dockerignore: pra colocar pastas como node_modules, pelo mesmo motivo como o .gitignore é usado.
 1. use COPY ao inves de ADD: COPY só copia um arquivo local pra imagem, ADD funciona tbm pra arquivos compactados, arquivos em um servidor na internet e jogando pra imagem. na duvida use o COPY.
-1. ENTRYPOINT vs CMD: ENTRYPOINT é usado quando a inicializacao do container é imutavel, quando nao muda o start do container. o CMD da a possibilidade de sobreescrever a inicializacao.
-1. usar agumentos na construcao de imagens: 
+1. ENTRYPOINT vs CMD: ENTRYPOINT é usado quando a inicializacao do container é imutavel, quando nao muda o start do container. o CMD da a possibilidade de sobreescrever a inicializacao. pasta "./entry"
+1. usar agumentos na construcao de imagens: pasta "./imagem-arg"
+1. multistage build: usada em linguagem compilada ou JIT (compilada e interpretada como php 8, java, c#). usar imagem de compilacao p ser o intermediario e imagem final p executar a aplicacao. pasta "./go-app
+
+## Docker registry (Docker Hub)
+
+- `docker login`
+- `docker push felippedeiro/conversao-temperatura:v1`
+- `docker tag felippedeiro/conversao-temperatura:v1 felippedeiro/conversao-temperatura:latest`: é uma boa pratica subir uma imagem como latest
+- `docker push felippedeiro/conversao-temperatura:latest`
 
 ## COMANDOS BÁSICOS
 
@@ -35,14 +43,14 @@
 - `docker container run -d nginx`: executa em modo deamon, em segundo plano, sem prender o terminal
 - `docker container run -d -p <porta-local>:<porta-container> <imagem>`: redireciona a porta local para a porta do container
 	- `docker container run -d -p 8080:80 nginx`
-rm -f: quando esta em execucao, tem q usar a remocao forçada
+- `docker container rm -f hello-world`: quando esta em execucao, tem q usar a remocao forçada
 - `docker container run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongouser -e MONGO_INITDB_ROOT_PASSWORD=mongopwd mongo`: -e passa as variaveis de ambiente, 
 
-docker image ls: lista as imagens
-docker image prune: elimina as images que nao tem mais referencia
-docker image rm: remove a imagem
-docker image inspect: dados da imagem
-docker image history: dados de criacao da imagem
+- `docker image ls`: lista as imagens
+- `docker image prune`: elimina as images que nao tem mais referencia
+- `docker image rm`: remove a imagem
+- `docker image inspect`: dados da imagem
+- `docker image history`: dados de criacao da imagem
 
 ## TROUBLESHOOTING
 
