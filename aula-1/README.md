@@ -1,12 +1,27 @@
 # Iniciativa Kubernetes 2021/09 (Fabrício Veronez)
 
+## Iniciar a api conversao-temperatura
+
+1. vá ate a pasta conversao-temperatura, onde estar o Dockerfile e rode:
+   1. `docker image build -t conversao-temperatura .`
+   1. `docker container run -d -p 8080:8080 conversao-temperatura`
+1. abra o navegador cole a url `localhost:8080`
+
+## Boas práticas na construção de imagens Docker
+
+1. nameando imagem docker
+   1. namespace/repositorio:tag
+   1. felippedeiro/api-conversao:v1
+
 ## COMANDOS BÁSICOS
+
+- `docker container ls -a`: 
+- `docker container rm <container-id-ou-name>`:
+	- `docker container rm e8e`: os 3 primeiros digitos do container id
 
 - `docker container run <imagem>`: 
 - `docker container run --name <nome> <imagem>`:
 	- `docker container run --name meucontainer hello-world`
-- `docker container la -a`: 
-- `docker container rm <container-id-ou-name>`:
 - `docker container run --name meucontainer --rm hello-world`: --rm remove o container quando ele é fechado
 - `docker container run -it ubuntu /bin/bash`: -t habilita tty, -i modo iterativo pra usar o terminal
 - `docker container run -d nginx`: executa em modo deamon, em segundo plano, sem prender o terminal
