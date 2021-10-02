@@ -3,7 +3,7 @@
 ## Iniciar a api conversao-temperatura
 
 1. vá ate a pasta conversao-temperatura, onde estar o Dockerfile e rode:
-   1. `docker image build -t conversao-temperatura .`
+   1. `docker image build -t felippedeiro/conversao-temperatura:v1 .`
    1. `docker container run -d -p 8080:8080 conversao-temperatura`
 1. abra o navegador cole a url `localhost:8080`
 
@@ -12,6 +12,14 @@
 1. nameando imagem docker
    1. namespace/repositorio:tag
    1. felippedeiro/api-conversao:v1
+1. de preferencia a imagens oficiais
+1. sempre especifique a tag nas imagens: `FROM node:14.17.5` ao inves de `FROM node`. Isso porque sempre tera certeza de que o codigo ira funcionar, pois esta usando sempre a mesma versao.
+1. use um processo por container, ao inves de rodar node, mariaDB e rabbitMQ tudo no mesmo container.
+1. aproveite as camadas da imagem: aumente a performance da construcao da imagem, usando o cache de camadas de imagem.
+1. use o .dockerignore: pra colocar pastas como node_modules, pelo mesmo motivo como o .gitignore é usado.
+1. use COPY ao inves de ADD: COPY só copia um arquivo local pra imagem, ADD funciona tbm pra arquivos compactados, arquivos em um servidor na internet e jogando pra imagem. na duvida use o COPY.
+1. ENTRYPOINT vs CMD: ENTRYPOINT é usado quando a inicializacao do container é imutavel, quando nao muda o start do container. o CMD da a possibilidade de sobreescrever a inicializacao.
+1. usar agumentos na construcao de imagens: 
 
 ## COMANDOS BÁSICOS
 

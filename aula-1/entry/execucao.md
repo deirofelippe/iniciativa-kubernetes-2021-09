@@ -1,0 +1,1 @@
+docker build -t felippedeiro/ubuntu-start:entry .
