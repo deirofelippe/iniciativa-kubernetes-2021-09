@@ -1,4 +1,13 @@
-# Iniciativa Kubernetes 2021/09 (Fabrício Veronez)
+# Aula 1 - Docker
+
+## Conteudos
+
+- [Iniciar a api conversao-temperatura](#iniciar-a-api-conversao-temperatura)
+- [Boas práticas na construção de imagens Docker](#boas-práticas-na-construção-de-imagens-docker)
+- [Docker registry (Docker Hub)](#docker-registry-docker-hub)
+- [Comandos](#comandos)
+- [Troubleshooting](#troubleshooting)
+- [Criar imagem](#criar-imagem)
 
 ## Iniciar a api conversao-temperatura
 
@@ -25,18 +34,18 @@
 ## Docker registry (Docker Hub)
 
 - `docker login`
-- `docker push felippedeiro/conversao-temperatura:v1`
-- `docker tag felippedeiro/conversao-temperatura:v1 felippedeiro/conversao-temperatura:latest`: é uma boa pratica subir uma imagem como latest
+- `docker push felippedeiro/conversao-temperatura:v1`: envia a imagem pro dockerhub
+- `docker tag felippedeiro/conversao-temperatura:v1 felippedeiro/conversao-temperatura:latest`: cria uma outra tag. É uma boa pratica subir uma imagem como latest.
 - `docker push felippedeiro/conversao-temperatura:latest`
 
-## COMANDOS BÁSICOS
+## Comandos
 
-- `docker container ls -a`: 
-- `docker container rm <container-id-ou-name>`:
+- `docker container ls -a`:
+- `docker container rm <container-id-ou-name>`
 	- `docker container rm e8e`: os 3 primeiros digitos do container id
 
-- `docker container run <imagem>`: 
-- `docker container run --name <nome> <imagem>`:
+- `docker container run <imagem>`
+- `docker container run --name <nome> <imagem>`
 	- `docker container run --name meucontainer hello-world`
 - `docker container run --name meucontainer --rm hello-world`: --rm remove o container quando ele é fechado
 - `docker container run -it ubuntu /bin/bash`: -t habilita tty, -i modo iterativo pra usar o terminal
@@ -52,7 +61,7 @@
 - `docker image inspect`: dados da imagem
 - `docker image history`: dados de criacao da imagem
 
-## TROUBLESHOOTING
+## Troubleshooting
 
 - `docker container inspect <id-ou-name>`: informacoes do container (estado do container, elementos de rede, volumes)
 - `docker container exec -it <id-ou-name>`: abre o terminal do container que ja esta em execucao
@@ -63,7 +72,7 @@
 - `docker container -f <id-ou-name>`: -f follow, acompanha em tempo real o log
 - `docker container -t`: mostra as horas de cada log
 
-## CRIAR IMAGEM
+## Criar imagem
 
 ### Má prática -> usar o commit
 
@@ -84,10 +93,8 @@ FROM ubuntu
 RUN apt-get update && apt-get install curl --yes && apt-get install vim --yes
 ```
 
--t <nome-container>: 
-`docker image build -t docker-curl-file .`:
+`docker image build -t docker-curl-file .`
 
-## Dockerfile
+### Comandos do dockerfile
 
-[](./img-1.png)
-
+![](./img-1.png)
