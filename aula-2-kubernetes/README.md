@@ -60,6 +60,7 @@
 - `kubectl delete pod meupod`
 - `kubectl get pods -l <chave>=<valor>`: pega o pod pelo label
 - `kubectl get pods -l app=web`
+- `kubectl get pods -o wide`: mostra em qual node esta rodando o pod
 
 - `kubectl apply -f meureplicaset.yaml`: cria os objetos que estão definidos no arquivo
 - `kubectl get replicaset`
