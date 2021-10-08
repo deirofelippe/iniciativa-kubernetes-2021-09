@@ -2,6 +2,6 @@
 
 ## Infras desenvolvidas
 
-- https://github.com/felippedesouza/conversao-peso
-- https://github.com/felippedesouza/conversao-temperatura
-- https://github.com/felippedesouza/rotten-potatoes
+- [Rotten Potatoes (Python, MongoDB)](https://github.com/felippedesouza/rotten-potatoes)
+- [Conversão de Peso (ASP.NET)](https://github.com/felippedesouza/conversao-peso)
+- [Conversão de Temperatura (Node)](https://github.com/felippedesouza/conversao-temperatura)
