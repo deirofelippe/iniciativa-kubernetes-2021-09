@@ -4,12 +4,16 @@
 
 1. `terraform init` para iniciar o projeto e baixar os providers
 1. gere um token na digital ocean para o terraform conseguir ter acesso para criar o cluster kubernetes
+
    ![](./img/img-1.png)
    ![](./img/img-2.png)
    ![](./img/img-3.png)
    ![](./img/img-4.png)
+   
 1. cole o token no arquivo `terraform.tfvars`
+
    ![](./img/img-5.png)
+   
 1. `terraform apply` para construir a infra baseado no .tf
 1. copia o arquivo `kube_config`, cola no `~/.kube/config` e no secrets do github actions
 1. `kubectl apply -f ./k8s/deployment.yaml`
